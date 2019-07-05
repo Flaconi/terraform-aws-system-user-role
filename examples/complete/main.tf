@@ -1,4 +1,6 @@
-variable "inline_policies" {}
+provider "aws" {
+  region = var.region
+}
 
 module "terraform_user_role" {
   source = "../../"
