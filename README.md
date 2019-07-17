@@ -38,4 +38,4 @@ Check the [examples](examples) directory.
 
 [MIT](LICENSE)
 
-Copyright (c) 2018 [Flaconi GmbH](https://github.com/Flaconi)
+Copyright (c) 2019 [Flaconi GmbH](https://github.com/Flaconi)
