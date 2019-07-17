@@ -1,4 +1,4 @@
-# AWS IAM Service User Role
+# AWS IAM System User Role
 
 [![Build Status](https://travis-ci.com/Flaconi/terraform-aws-service-user-role.svg?branch=master)](https://travis-ci.com/Flaconi/terraform-aws-service-user-role)
 [![Tag](https://img.shields.io/github/tag/Flaconi/terraform-aws-service-user-role.svg)](https://github.com/Flaconi/terraform-aws-service-user-role/releases)
