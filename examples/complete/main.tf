@@ -10,5 +10,6 @@ module "terraform_user_role" {
   iam_role_principals_arns = []
   tags                     = {}
 
-  inline_policies = var.inline_policies
+  inline_policies    = var.inline_policies
+  attach_policy_arns = ["arn:aws:iam::aws:policy/AmazonVPCReadOnlyAccess"]
 }

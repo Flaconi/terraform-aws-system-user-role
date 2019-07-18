@@ -75,3 +75,9 @@ resource "aws_iam_role_policy" "this" {
   role   = element(concat(aws_iam_role.this.*.id, [""]), 0)
   policy = data.aws_iam_policy_document.this[count.index].json
 }
+
+resource "aws_iam_role_policy_attachment" "this" {
+  count  = var.enabled ? length(var.attach_policy_arns) : 0
+  role   = element(concat(aws_iam_role.this.*.id, [""]), 0)
+  policy_arn = var.attach_policy_arns[count.index]
+}
