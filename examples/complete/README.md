@@ -4,6 +4,7 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | name | Name of the user and role | string | n/a | yes |
+| attach\_policy\_arns | Policy arns  attacherd to the assuming role | list | `[]` | no |
 | enabled | Set to false to prevent the module from creating any resources | bool | `"true"` | no |
 | iam\_role\_principals\_arns | Other IAM Principals which can assume the role | list | `[]` | no |
 | inline\_policies | Policies applied to the assuming role | list | `[]` | no |

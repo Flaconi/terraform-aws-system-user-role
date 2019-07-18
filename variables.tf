@@ -18,6 +18,11 @@ variable "inline_policies" {
   default     = []
 }
 
+variable "attach_policy_arns" {
+  description = "Policy arns  attacherd to the assuming role"
+  default     = []
+}
+
 variable "iam_role_principals_arns" {
   description = "Other IAM Principals which can assume the role"
   default     = []
