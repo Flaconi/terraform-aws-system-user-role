@@ -1,7 +1,7 @@
-# AWS IAM Service User Role
+# AWS IAM System User Role
 
-[![Build Status](https://travis-ci.com/Flaconi/terraform-aws-service-user-role.svg?branch=master)](https://travis-ci.com/Flaconi/terraform-aws-service-user-role)
-[![Tag](https://img.shields.io/github/tag/Flaconi/terraform-aws-service-user-role.svg)](https://github.com/Flaconi/terraform-aws-service-user-role/releases)
+[![Build Status](https://travis-ci.com/Flaconi/terraform-aws-system-user-role.svg?branch=master)](https://travis-ci.com/Flaconi/terraform-aws-system-user-role)
+[![Tag](https://img.shields.io/github/tag/Flaconi/terraform-aws-system-user-role.svg)](https://github.com/Flaconi/terraform-aws-system-user-role/releases)
 [![license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 Terraform module that provides an IAM User and IAM Role with given policies.
@@ -39,4 +39,4 @@ Check the [examples](examples) directory.
 
 [MIT](LICENSE)
 
-Copyright (c) 2018 [Flaconi GmbH](https://github.com/Flaconi)
+Copyright (c) 2019 [Flaconi GmbH](https://github.com/Flaconi)
