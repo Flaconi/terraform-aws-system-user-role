@@ -1,5 +1,5 @@
 variable "inline_policies" {
-  default =  []
+  default = []
 }
 
 variable "region" {

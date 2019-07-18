@@ -3,8 +3,9 @@ provider "aws" {
 }
 
 module "terraform_user_role" {
-  source = "../../"
-  name   = "testuser"
+  source  = "../../"
+  name    = "testuser"
+  enabled = true
 
   iam_role_principals_arns = []
   tags                     = {}
