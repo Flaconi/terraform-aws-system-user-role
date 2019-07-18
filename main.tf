@@ -2,6 +2,7 @@
 # IAM User
 # -------------------------------------------------------------------------------------------------
 resource "aws_iam_user" "this" {
+  count         = var.enabled ? 1 : 0
   name          = var.name
   force_destroy = true
   tags          = var.tags
@@ -9,7 +10,8 @@ resource "aws_iam_user" "this" {
 
 
 resource "aws_iam_access_key" "this" {
-  user = aws_iam_user.this.name
+  count = var.enabled ? 1 : 0
+  user  = element(concat(aws_iam_role.this.*.id, [""]), 0)
 }
 
 
@@ -18,9 +20,10 @@ resource "aws_iam_access_key" "this" {
 # -------------------------------------------------------------------------------------------------
 
 resource "aws_iam_role" "this" {
-  name = var.name
+  count = var.enabled ? 1 : 0
+  name  = var.name
 
-  assume_role_policy = data.aws_iam_policy_document.trust_policy.json
+  assume_role_policy = element(concat(data.aws_iam_policy_document.trust_policy.*.json, [""]), 0)
   description        = "description"
 
   tags = var.tags
@@ -28,6 +31,7 @@ resource "aws_iam_role" "this" {
 
 
 data "aws_iam_policy_document" "trust_policy" {
+  count = var.enabled ? 1 : 0
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRole"]
@@ -51,7 +55,7 @@ data "aws_iam_policy_document" "trust_policy" {
 
 
 data "aws_iam_policy_document" "this" {
-  count = length(var.inline_policies)
+  count = var.enabled ? length(var.inline_policies) : 0
 
   dynamic statement {
     for_each = var.inline_policies[count.index].statements
@@ -66,8 +70,8 @@ data "aws_iam_policy_document" "this" {
 }
 
 resource "aws_iam_role_policy" "this" {
-  count  = length(var.inline_policies)
+  count  = var.enabled ? length(var.inline_policies) : 0
   name   = lookup(var.inline_policies[count.index], "name")
-  role   = aws_iam_role.this.id
+  role   = element(concat(aws_iam_role.this.*.id, [""]), 0)
   policy = data.aws_iam_policy_document.this[count.index].json
 }
